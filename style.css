@@ -1,0 +1,141 @@
+
+/* General styling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #dedede;
+    color: #222222;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+a {
+    color: #000000;
+    text-decoration: underline;
+    font-family: Arial, sans-serif;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Mobile-first layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    margin: 0;
+    padding: 15px;
+    border: 3px solid #555555;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: #222222;
+    text-align: center;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* Tablet view */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    figure {
+        border-radius: 50%;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    figure img {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Large screen view */
+@media screen and (min-width: 992px) {
+    figure:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+    figure {
+        border-radius: 0;
+        aspect-ratio: auto;
+    }
+
+    figure img {
+        width: 70%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark color scheme */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    h1,
+    p {
+        color: #ffffff;
+    }
+
+    figure {
+        background-color: #222222;
+        color: #ffff99;
+        border-color: #000000;
+    }
+
+    a {
+        color: #ffff99;
+    }
+}
